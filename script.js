@@ -75,9 +75,11 @@ let dice = function() {
 }
 
 console.log('random from 1 to 6', dice());
+
 /* Ex.2 
     Write a function called "whoIsBigger" which receives 2 numbers as parameters and returns the biggest one.
 */
+
 let whoIsBigger = function (a, b) {
     let myArr = [a, b]
 
@@ -156,13 +158,45 @@ console.log('Today is: ', whatDayIsIt());
     }
 */
 
+
+
+let rollTheDices = function(n){
+    let arrMy = []
+    for(let i = 0; i < n; i++) {
+        arrMy.push(dice())
+    }
+    return arrMy
+}
+
+console.log(rollTheDices(10));
+
 /* Ex.9
    Write a function called "howManyDays" which receives a date as a parameter and should return the number of days passed since that date.
 */
+// let howManyDays = function(date){
+//     const date1 = new Date('7/13/2010');
+//     const date2 = new Date().getMonth().getDay().getFullYear();
+//     const diffTime = Math.abs(date2 - date1);
+//     const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24)); }
+
+
+
+// const date2 = new Date().getMonth();
+// console.log(date2);
 
 /* Ex.10
    Write a function called "isTodayMyBirthday" which should return true if today's your birthday, false otherwise.
 */
+
+let isTodayMyBirthday = function(){
+    let myBirthday = 11
+    let myBirthMonth = 5
+    let toDaay = new Date()
+    let actualMonth = new Date()
+    
+    return  myBirthday === toDaay.getDate() && myBirthMonth === actualMonth.getMonth() + 1 
+}
+console.log('Is it my BDay 2day?', isTodayMyBirthday());
 
 // JS Arrays // Objs
 // NOTE: movies array is defined at the end of this file!
@@ -172,10 +206,36 @@ console.log('Today is: ', whatDayIsIt());
     and returns the given object after deleting its property named as the given string.
 */
 
+
+const movies1 =  {
+      Title: "The Lord of the Rings: The Fellowship of the Ring",
+      Year: "2001",
+      imdbID: "tt0120737",
+      Type: "movie",
+      Poster:
+        "https://m.media-amazon.com/images/M/MV5BN2EyZjM3NzUtNWUzMi00MTgxLWI0NTctMzY4M2VlOTdjZWRiXkEyXkFqcGdeQXVyNDUzOTQ5MjY@._V1_SX300.jpg",
+    }
+
+let deleteProp = function(obj5, str5){
+     delete obj5[str5]
+    return obj5
+}
+
+console.log('delete property', deleteProp(movies1, 'Type'));
+
 /* Ex.12 
     Write a function called "olderMovie" which finds the oldest movie in the array provided at the end of this file.
 */
 
+// let olderMovie = function(){
+//     let myYears = []
+//     for (let i = 0; i < movies.length; i++){
+//         myYears.push(movies[i][Year])
+//     }
+//     return myYears
+// }
+
+// console.log('Older Movies ', olderMovies());
 /* Ex.13
     Write a function called "countMovies" which returns the number of movies contained in the array provided at the end of this file.
 */
@@ -220,6 +280,16 @@ console.log('Today is: ', whatDayIsIt());
   **
   ***
 */
+
+let halfTree = function(height){
+    let stars = '*'
+    for (let i = 0; i < height; i++){
+        stars++
+    }
+    return stars
+}
+
+console.log(halfTree(4));
 
 /* Ex.22 
   Create a function called "tree" which receives a number as a parameter and builds an "*" tree with the given height.
@@ -349,3 +419,14 @@ const movies = [
         "https://m.media-amazon.com/images/M/MV5BMTc5MDE2ODcwNV5BMl5BanBnXkFtZTgwMzI2NzQ2NzM@._V1_SX300.jpg",
     },
   ]
+
+  let olderMovie = function(){
+    let myYears = []
+    for (let i = 0; i < movies.length; i++){
+        myYears.push(movies[i]['Year'])
+    }
+
+    return Math.max(...myYears)
+}
+
+console.log('Older Movies ', olderMovie());
