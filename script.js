@@ -500,15 +500,15 @@ console.log('--------------------------/n-------------------------------------/n
 */
 
 let halfTree = function(height){
-    let star = '*'
+    let star = ''
 
     for (let i = 0; i < height; i += 1){
-        console.log(star+= star );
+        console.log(star+= '*' );
     }
     
 }
 
-console.log(halfTree(4));
+console.log(halfTree(7));
 
 /* Ex.22 
   Create a function called "tree" which receives a number as a parameter and builds an "*" tree with the given height.
